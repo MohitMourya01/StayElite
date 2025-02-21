@@ -4,7 +4,7 @@ import DetailsSection from './DetailsSection.jsx';
 import TypesSection from './TypesSection.jsx';
 import FacilitiesSection from './FacilitiesSection.jsx';
 import GustsSection from './GustsSection.jsx';
-import ImageSection from './imageSection.jsx';
+import ImageSection from './ImageSection.jsx';
 const ManageHotelForm = ({onSave, isLoading, hotel}) => {
     const formMethods = useForm();
     const {handleSubmit, reset} = formMethods;

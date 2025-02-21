@@ -11,7 +11,11 @@ router.route("/validate-token").get(verifyToken, (req, res) => {
 
 router.route("/logout").post((req, res) => {
     res.cookie("auth_token", "", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "none",
         expires: new Date(0),
+        path: "/",
     } )
     res.send();
 })

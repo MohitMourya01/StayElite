@@ -18,7 +18,7 @@ const Home = () => {
             ))}
         </div>
         <div className='grid md:grid-cols-3 gap-4'>
-        {topRowHotels.map((hotel) => (
+        {bottomRowHotels.map((hotel) => (
             <LatestDestinationCard hotel = {hotel} />
          ))}
         </div>

@@ -27,11 +27,7 @@ const app = express();
 
 
 const PORT =  process.env.PORT || 5000;
- mongoose
-    .connect(process.env.DB_URI)
-    .then(() => {
-        console.log("Connected to database. ")
-    })
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -52,6 +48,14 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
 
-app.listen(PORT, () => {
-    console.log('server is running at', PORT)
+mongoose
+.connect(process.env.DB_URI)
+.then(() => {
+  console.log("Connected to database.");
+  app.listen(PORT, () => {
+    console.log("Server is running at", PORT);
+  });
 })
+.catch((err) => {
+  console.error("DB connection failed:", err);
+});
